@@ -5,8 +5,8 @@ export default function MenuScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Menú Principal</Text>
-      <Text>Selecciona Alimentos y Bebidas</Text>
-      <Button title="Ir a Selección" onPress={() => navigation.navigate('Selection')} />
+      <Button title="Seleccionar Productos" onPress={() => navigation.navigate('Selection')} />
+      <Button title="Historial de Compras" onPress={() => navigation.navigate('History')} />
     </View>
   );
 }

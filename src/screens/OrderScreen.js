@@ -1,11 +1,23 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet, Button } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function OrderScreen({ route }) {
+export default function OrderScreen({ route, navigation }) {
   const { order } = route.params;
-
-  // Calcular total
   const total = order.reduce((sum, item) => sum + item.price, 0);
+
+  const saveOrder = async () => {
+    try {
+      const existing = await AsyncStorage.getItem('orders');
+      const orders = existing ? JSON.parse(existing) : [];
+      const newOrders = [...orders, { order, total, date: new Date().toLocaleString() }];
+      await AsyncStorage.setItem('orders', JSON.stringify(newOrders));
+      alert('Orden guardada en historial');
+      navigation.navigate('History');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -20,6 +32,7 @@ export default function OrderScreen({ route }) {
         )}
       />
       <Text style={styles.total}>Total: ${total.toFixed(2)}</Text>
+      <Button title="Guardar Orden" onPress={saveOrder}/>
     </View>
   );
 }
