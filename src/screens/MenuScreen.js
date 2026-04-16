@@ -12,6 +12,6 @@ export default function MenuScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex:1, justifyContent:'center', alignItems:'center' },
+  container: { flex:1, justifyContent:'center', alignItems:'center',backgroundColor:'lightyellow' },
   title: { fontSize:24, fontWeight:'bold', marginBottom:20 }
 });

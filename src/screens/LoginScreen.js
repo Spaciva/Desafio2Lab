@@ -24,7 +24,7 @@ export default function LoginScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex:1, justifyContent:'center', padding:20 },
+  container: { flex:1, justifyContent:'center', padding:20,backgroundColor:'lightgray' },
   title: { fontSize:24, fontWeight:'bold', marginBottom:20 },
   input: { borderWidth:1, marginBottom:10, padding:10 }
 });
