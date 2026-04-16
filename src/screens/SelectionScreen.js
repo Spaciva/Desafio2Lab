@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { products } from '../data/products';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -66,7 +66,7 @@ export default function SelectionScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerDecor}>🌮 🌶️ 🌮</Text>
         <Text style={styles.title}>Selecciona tus productos</Text>
@@ -84,6 +84,7 @@ export default function SelectionScreen({ navigation }) {
         keyExtractor={(item) => item.id}
         renderItem={renderProduct}
         scrollEnabled={true}
+        contentContainerStyle={styles.listContent}
       />
 
       <View style={styles.footerContainer}>
@@ -97,7 +98,7 @@ export default function SelectionScreen({ navigation }) {
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -106,6 +107,9 @@ const styles = StyleSheet.create({
     flex: 1, 
     backgroundColor: '#f5f1e8',
     paddingHorizontal: 0
+  },
+  listContent: {
+    paddingBottom: 20
   },
   header: {
     backgroundColor: '#c41e3a',
@@ -225,6 +229,7 @@ const styles = StyleSheet.create({
   },
   footerContainer: {
     padding: 15,
+    paddingBottom: 25,
     backgroundColor: '#fff',
     borderTopWidth: 3,
     borderTopColor: '#228B22'
