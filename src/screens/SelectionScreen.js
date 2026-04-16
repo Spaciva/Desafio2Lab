@@ -68,9 +68,9 @@ export default function SelectionScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerDecor}>🌮 🌶️ 🌮</Text>
+        <Text style={styles.headerDecor}>r</Text>
         <Text style={styles.title}>Selecciona tus productos</Text>
-        <Text style={styles.headerDecor}>🌮 🌶️ 🌮</Text>
+        <Text style={styles.headerDecor}></Text>
       </View>
 
       {order.length > 0 && (
