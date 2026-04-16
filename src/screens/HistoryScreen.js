@@ -32,7 +32,7 @@ export default function HistoryScreen({ navigation }) {
       const newOrders = orders.filter((_, i) => i !== index);
       await AsyncStorage.setItem('orders', JSON.stringify(newOrders));
       setOrders(newOrders);
-      alert('✅ Orden eliminada');
+      alert(' Orden eliminada');
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +59,7 @@ export default function HistoryScreen({ navigation }) {
             <View style={styles.card}>
               <View style={styles.cardHeader}>
                 <View style={styles.dateContainer}>
-                  <Text style={styles.dateLabel}>📅</Text>
+                  <Text style={styles.dateLabel}></Text>
                   <Text style={styles.date}>{item.date}</Text>
                 </View>
                 <View style={styles.totalBadge}>
@@ -80,7 +80,7 @@ export default function HistoryScreen({ navigation }) {
                 style={styles.deleteButton}
                 onPress={() => deleteOrder(index)}
               >
-                <Text style={styles.deleteButtonText}>🗑️ Eliminar</Text>
+                <Text style={styles.deleteButtonText}>Eliminar</Text>
               </TouchableOpacity>
             </View>
           )}

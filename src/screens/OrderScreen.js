@@ -12,7 +12,7 @@ export default function OrderScreen({ route, navigation }) {
       const orders = existing ? JSON.parse(existing) : [];
       const newOrders = [...orders, { order, total, date: new Date().toLocaleString() }];
       await AsyncStorage.setItem('orders', JSON.stringify(newOrders));
-      alert('✅ ¡Orden guardada en historial!');
+      alert(' ¡Orden guardada en historial!');
       navigation.navigate('Selection');
     } catch (error) {
       console.log(error);
@@ -39,7 +39,7 @@ export default function OrderScreen({ route, navigation }) {
 
       <View style={styles.orderSummary}>
         <Text style={styles.itemCountText}>
-          📋 {order.length} artículos seleccionados
+           {order.length} artículos seleccionados
         </Text>
       </View>
 
@@ -76,14 +76,14 @@ export default function OrderScreen({ route, navigation }) {
           style={styles.cancelButton}
           onPress={() => navigation.goBack()}
         >
-          <Text style={styles.cancelButtonText}>❌ Cancelar</Text>
+          <Text style={styles.cancelButtonText}>Cancelar</Text>
         </TouchableOpacity>
 
         <TouchableOpacity 
           style={styles.saveButton}
           onPress={saveOrder}
         >
-          <Text style={styles.saveButtonText}>✅ Guardar Orden</Text>
+          <Text style={styles.saveButtonText}> Guardar Orden</Text>
         </TouchableOpacity>
       </View>
     </View>
